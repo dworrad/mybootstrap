@@ -1,0 +1,44 @@
+{
+  "name": "mybootstrap",
+  "version": "0.0.1",
+  "engines": {
+    "node": ">0.10.0",
+    "npm":  ">1.0.0"
+  },
+  "private": true,
+  "scripts": {
+    "start": "lcm server",
+    "test": "grunt test"
+  },
+  "dependencies": {
+    "locomotive": "~0.3.1",
+    "express": "~3.0.0",
+    "connect-powered-by": "~0.1.0",
+    "ejs": "",
+    "consolidate": "~0.3.1",
+    "less-middleware": "~0.1.6",
+    "passport": "~0.1.12",
+    "passport-local": "~0.1.6",
+    "bcrypt": "~0.7.2",
+    "mongoose": "",
+    "locomotive-mongoose": "~0.1.0",
+    "requireindex": "~0.1.8",
+    "winston": "~0.6.2",
+    "connect-flash": "~0.1.0",
+    "underscore": "",
+    "csv": "",
+    "mailer": "",
+    "connect-mongo":"",
+    "cron":"",
+    "ua-parser-js": "",
+    "request":"",
+    "bitly":"",
+    "aws-sdk":""
+  },
+  "devDependencies": {
+    "grunt": "~0.3.15",
+    "should": "~1.1.0",
+    "vows": "~0.6.4",
+    "grunt-vows": "~0.2.0"
+  }
+}

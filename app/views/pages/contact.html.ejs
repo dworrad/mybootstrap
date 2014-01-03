@@ -1,0 +1,104 @@
+<% include ../partials/header.html.ejs %>
+
+
+	<form class="form-horizontal" action="/contact" method="post">
+
+		<div class="control-group">
+			<label class="control-label" for="frmsubject">Subject <span style="color:red;&quot;">*</span></label>
+
+			<div class="controls">
+				<input type="text" name="frmsubject" id="frmsubject" placeholder="Subject" style="margin: 0px; width: 450px;">
+			</div>
+		</div>
+
+		<div class="control-group">
+			<label class="control-label" for="frmmessage">Message <span style="color:red;&quot;">*</span></label>
+
+			<div class="controls">
+				<textarea class="span6" name="frmmessage" id="frmmessage" placeholder="Message" style="margin: 0px; width: 450px; height: 150px;"></textarea>
+			</div>
+		</div>
+
+		<div class="control-group">
+			<label class="control-label" for="frmname">Name <span style="color:red;&quot;">*</span></label>
+
+			<div class="controls">
+				<input type="text" name="frmname" id="frmname" placeholder="Name" style="margin: 0px; width: 450px;">
+			</div>
+		</div>
+
+		<div class="control-group">
+			<label class="control-label" for="frmemail">Email <span style="color:red;&quot;">*</span></label>
+
+			<div class="controls">
+				<input type="text" name="frmemail" id="frmemail" placeholder="Email" style="margin: 0px; width: 450px;">
+			</div>
+		</div>
+
+		<div class="control-group">
+			<label class="control-label" for=""></label>
+
+			<div class="controls">
+				  <input class="btn" type="submit" value="Submit">
+			</div>
+		</div>
+		
+	</form>
+
+
+
+
+<% include ../partials/footer.html.ejs %>
+
+<script>
+$(document).ready(function() {
+
+	$("form").submit(function(){
+		var isvalid = true
+      	$('form input').each(function()
+		{
+		    if(!$(this).val()) {
+				$(this).parents('div').parents('div').addClass('error');
+				isvalid = false
+		    }
+		    else
+		    {
+		    	$(this).parents('div').parents('div').removeClass('error');
+		    }
+		})
+
+		$('form textarea').each(function()
+		{
+		    if(!$(this).val()) {
+				$(this).parents('div').parents('div').addClass('error');
+				isvalid = false
+		    }
+		    else
+		    {
+		    	$(this).parents('div').parents('div').removeClass('error');
+		    }
+		})
+
+		if(!validateEmail($('#frmemail').val())){
+			$('#frmemail').parents('div').parents('div').addClass('error');
+			isvalid = false
+		}
+		else
+		{
+		    $('#frmemail').parents('div').parents('div').removeClass('error');
+		}
+
+		if(!isvalid){
+			return false
+		}
+
+		return true
+    })
+
+})
+
+function validateEmail(email) { 
+    var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(email);
+} 
+</script>

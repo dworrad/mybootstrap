@@ -1,0 +1,54 @@
+
+
+
+	<div class="form-group">
+		<label class="col-sm-3 control-label no-padding-right" for="login">Email: <span style="color:red;&quot;">*</span></label>
+		<div class="col-sm-9">
+          <input class="col-sm-2" type="text" name="email" disabled="disabled" value="<%= user.email %>"/>
+        </div>
+	</div>
+	<div class="form-group">
+		<label class="col-sm-3 control-label no-padding-right" for="phone">Phone: </label>
+		<div class="col-sm-9">
+          <input class="col-sm-2" type="text" name="phone" value="<% if (undefined !== user.phone && user.phone){ %><%= user.phone %><% } %>" />
+        </div>
+	</div>
+	<div class="form-group">
+		<label class="col-sm-3 control-label no-padding-right" for="name.first">First Name: <span style="color:red;&quot;">*</span></label>
+		<div class="col-sm-9">
+          <input class="col-sm-2" type="text" id="firstname" name="firstname" value="<% if (undefined !== user.name.first && user.name.first){ %><%= user.name.first %><% } %>" />
+        </div>
+	</div>
+	<div class="form-group">
+		<label class="col-sm-3 control-label no-padding-right" for="name.last">Last Name: <span style="color:red;&quot;">*</span></label>
+		<div class="col-sm-9">
+          <input class="col-sm-2" type="text" id="lastname" name="lastname" value="<% if (undefined !== user.name.last && user.name.last){ %><%= user.name.last %><% } %>" />
+        </div>
+	</div>
+
+
+<script>
+$(document).ready(function(){
+
+	$("#frmEdit").submit(function(){
+	
+		var isvalid = true
+		if($("#firstname").val().length == 0){	
+			isvalid = false
+		}
+
+		if($("#lastname").val().length == 0){	
+			isvalid = false
+		}
+
+		if(!isvalid){	
+			clearerrormessages()
+			flasherrormessage("Please complete all required fields!","error")
+		}
+
+		return isvalid
+
+	})
+	
+})
+</script>

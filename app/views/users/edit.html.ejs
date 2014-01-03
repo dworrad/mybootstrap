@@ -1,0 +1,79 @@
+<% include ../partials/dashboardheader.html.ejs %>
+
+                
+	
+	
+<div class="page-content">
+    <div class="page-header">
+        <h1>
+            Edit Profile
+
+        </h1>
+    </div><!-- /.page-header -->
+
+    <div class="row">
+
+        <div class="col-xs-12">
+
+            <form id="frmEdit" enctype="multipart/form-data" action="/users/<%= user._id %>/update" method="POST" class="form-horizontal">
+
+                <% include p_edit.html.ejs %>
+
+                <br>
+
+                <div class="clearfix form-actions">
+                    <div class="col-md-offset-3 col-md-9">
+                        <button class="btn btn-info" type="submit">
+                            <i class="icon-ok bigger-110"></i>
+                            Save
+                        </button>
+
+                        &nbsp; &nbsp; &nbsp;
+                        <a class="btn" href="/overview">
+                            <i class="icon-undo bigger-110"></i>
+                            Cancel</a>
+                    </div>
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <div class="page-header">
+        <h1>
+            Change Password
+
+        </h1>
+    </div><!-- /.page-header -->
+
+    <div class="row">
+
+        <div class="col-xs-12">
+
+
+            <form id="frmPassword" enctype="multipart/form-data" action="/users/<%= user._id %>/changepassword" method="POST" class="form-horizontal">
+
+                <% include p_changepassword.ejs %>
+
+                <br>
+
+                <div class="clearfix form-actions">
+                    <div class="col-md-offset-3 col-md-9">
+                        <button class="btn btn-info" type="submit">
+                            <i class="icon-ok bigger-110"></i>
+                            Change Password
+                        </button>
+                    </div>
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+<% include ../partials/dashboardfooter.html.ejs %>

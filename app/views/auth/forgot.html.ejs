@@ -1,0 +1,48 @@
+<% include ../partials/minimalheader.html.ejs %>
+
+
+    <div class="page-content">
+      <div class="page-header">
+        <h1>
+          Forgot Password
+        </h1>
+      </div><!-- /.page-header -->
+
+      <div class="row">
+
+        <div class="col-xs-12">    
+          <form action="/forgot" method="POST" class="form-horizontal">
+            <div class="form-group">
+              <label class="col-sm-3 control-label no-padding-right" for="email"> Email: </label>
+
+              <div class="col-sm-9">
+                <input type="text" id="email" name="email" placeholder="Email" class="col-xs-2">
+              </div>
+            </div>
+
+            <div class="clearfix form-actions">
+              <div class="col-md-offset-3 col-md-9">
+                <button class="btn btn-info" type="submit">
+                  <i class="icon-ok bigger-110"></i>
+                  Request Password Reset
+                </button>
+              </div>
+            </div>
+
+          </form>
+        
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+<script>
+$(document).ready(function(){
+  $("li#login a").addClass("active")
+})
+</script>
+
+<% include ../partials/minimalfooter.html.ejs %>
