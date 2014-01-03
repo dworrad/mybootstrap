@@ -15,5 +15,70 @@
   </head>
   <body>
 
+    <header>
+      
+      <!-- Flash Messages (Errors, Info etc) -->
+      <div class="row-fluid" style="margin: 5px;" id="flashmessages">
+            
+        <% if ('undefined' !== typeof flash && flash.info){ %>
+            <% for(var i=0; i<flash.info.length; i++) {%>
+              <div class="alert alert-info">
+                <button type="button" class="close" data-dismiss="alert">
+                  <i class="icon-remove"></i>
+                </button>
+                <strong>Heads up!</strong>
+
+                <%= flash.info[i] %>
+                <br>
+              </div>
+            <% } %>
+        <%}%>
+        
+        <% if ('undefined' !== typeof flash && flash.error){ %>
+          <% for(var i=0; i<flash.error.length; i++) {%>
+            <div class="alert alert-danger">
+                <button type="button" class="close" data-dismiss="alert">
+                  <i class="icon-remove"></i>
+                </button>
+
+                <strong>
+                  <i class="icon-remove"></i>
+                  Oh snap!
+                </strong>
+
+                <%= flash.error[i] %>
+                <br>
+              </div>
+          <% } %>   
+        <% } %>
+
+      </div>
+
+      
+        <% if(user){ %>
+          <span>
+            <small>Welcome,</small>
+            <% if(user.name.first){ %>
+               <%= user.name.first %>
+            <% }else{ %> 
+              <%= user.email %>
+            <% } %>
+          </span>
+
+          <ul id="user_menu" class="pull-right dropdown-menu dropdown-yellow dropdown-caret dropdown-closer">
+            <li><a href="/users/<%= user._id %>/edit"><i class="icon-user"></i> Profile</a></li>
+            <li><a href="/logout"><i class="icon-off"></i> Logout</a></li>
+          </ul>
+
+        <% }else{ %>
+
+          <ul id="user_menu" class="pull-right dropdown-menu dropdown-yellow dropdown-caret dropdown-closer">
+            <li><a href="/login"><i class="icon-lock"></i> Login</a></li>
+            <li><a href="/signup"><i class="icon-off"></i> Signup</a></li>
+          </ul>
+
+        <% } %>
+
+    </header>
 
     

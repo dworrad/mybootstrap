@@ -23,11 +23,11 @@ module.exports = conf = {
     },
 
     local: {
-        database_connection:        "mongodb://localhost:27017/PROJECT_DB",
+        database_connection:        "mongodb://localhost:27017/dogeshit",
         dns:                        "http://localhost:3000",
         standarderror:              "Something went wrong! Someone has been dispatched to sort this out.",
-        EmailsFrom:                 "Local PROJECT_NAME Team <admin@dogeshit.com>",
-        testemailaddress:           "YOUR_EMAIL_ADDRESS"
+        EmailsFrom:                 "Local Dogeshit Team <admin@dogeshit.com>",
+        testemailaddress:           "dworrad@yahoo.co.uk"
     }
 
 }

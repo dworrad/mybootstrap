@@ -22,16 +22,8 @@ module.exports = function() {
 
   this.set('mongodb uri', conf[environment].database_connection);
 
-  // Winston Logging - Not needed at the moment
-  // var winston = require('winston')
-  // var logger = new (winston.Logger)({
-  //   transports: [ 
-  //   new (winston.transports.File)({ filename: 'logs/' + new Date().getTime() + '.log', level: 'info' })
-  //   ]
-  // })
-
-  // logger.extend(this);
-  // this.set('logger', logger);
+  // Add Logging - Not needed at the moment
+  // Maybe Winston
 
 
   this.use(express.favicon());

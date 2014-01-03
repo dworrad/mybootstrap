@@ -2,7 +2,7 @@ var email = require('mailer')
 
 exports = sendemail = function(to, subject, data, template, cb){
 
-  if(environment != "production" && environment != "demo"){
+  if(environment != "production"){
     console.log("Changing the TO address on sendemail to - (" + conf[environment].testemailaddress + ") as not production or demo!")
     to = conf[environment].testemailaddress
   }
@@ -22,20 +22,26 @@ exports = sendemail = function(to, subject, data, template, cb){
     };
 
   
-    email.send(settings, function(err, result) {
-        if(err) {
-          console.log("Error - " + err)
-          // An error occurred. Handle it
+    if(conf[environment].sendgriduser && conf[environment].sendgridpwd){
+      email.send(settings, function(err, result) {
+          if(err) {
+            console.log("Error - " + err)
+            // An error occurred. Handle it
 
-          cb(err)
-        }
-        else
-        {
-          console.log("Mail send result - " + result)
-          cb(null)
-        }
-        // Your message has been sent!
-    });
+            cb(err)
+          }
+          else
+          {
+            console.log("Mail send result - " + result)
+            cb(null)
+          }
+          // Your message has been sent!
+      });
+    }
+    else
+    {
+      console.log("Email not being sent as send grid details not set!")
+    }
 
 
 }

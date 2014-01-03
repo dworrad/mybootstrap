@@ -23,5 +23,10 @@ module.exports = function routes() {
 
   //Misc
   this.match('githubhook', "github#hook", { via: ['post'] })
+  
+  //Users
+  this.resources('users')
+  this.match('users/:id/update', 'users#update', { via: ['post'] });
+  this.match('users/:id/changepassword', 'users#changepassword', { via: ['post'] });
 
 };
